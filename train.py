@@ -15,7 +15,7 @@ from tqdm import tqdm
 
 import wandb
 from evaluate import evaluate
-from unet import Unet
+from unet import UNet
 # from utils.data_loading import BasicDataset, CarvanaDataset
 from utils.data_loading import BasicDataset
 from utils.dice_score import dice_loss
@@ -207,7 +207,7 @@ if __name__ == '__main__':
     # Change here to adapt to your data
     # n_channels=3 for RGB images
     # n_classes is the number of probabilities you want to get per pixel
-    model = Unet(n_channels=args.channels, n_classes=args.classes, bilinear=True)
+    model = UNet(n_channels=args.channels, n_classes=args.classes, bilinear=True)
     model = model.to(memory_format=torch.channels_last)
     print(sum(p.numel() for p in model.parameters() if p.requires_grad))
     logging.info(f'Network:\n'
