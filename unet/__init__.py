@@ -1,1 +1,1 @@
-from .vig_unet import ViG_Unet
+from .unet import UNet
