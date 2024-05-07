@@ -20,9 +20,9 @@ from unet import UNet
 from utils.data_loading import BasicDataset
 from utils.dice_score import dice_loss
 
-dir_img = Path('/kaggle/input/brain-tumor-segmentation/images')
-dir_mask = Path('/kaggle/input/brain-tumor-segmentation/masks')
-dir_checkpoint = Path('/kaggle/working/checkpoints')
+dir_img = Path('images/')
+dir_mask = Path("masks/")
+dir_checkpoint = Path('checkpoints/Unet')
 
 
 def train_model(
@@ -183,7 +183,7 @@ def train_model(
 def get_args():
     parser = argparse.ArgumentParser(description='Train the UNet on images and target masks')
     parser.add_argument('--epochs', '-e', metavar='E', type=int, default=200, help='Number of epochs')
-    parser.add_argument('--batch-size', '-b', dest='batch_size', metavar='B', type=int, default=4, help='Batch size')
+    parser.add_argument('--batch-size', '-b', dest='batch_size', metavar='B', type=int, default=2, help='Batch size')
     parser.add_argument('--learning-rate', '-l', metavar='LR', type=float, default=1e-4,
                         help='Learning rate', dest='lr')
     parser.add_argument('--load', '-f', type=str, default=False, help='Load model from a .pth file')
